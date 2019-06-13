@@ -1,8 +1,9 @@
 
 
 # Create a new server running debian
-resource "hcloud_server" "tf-exampel-node01" {
-  name = "tf-exampel-node01"
+resource "hcloud_server" "tf-exampel-node" {
+  count = 1
+  name = "tf-exampel-node-${count.index}"
   location = "nbg1"
   image = "ubuntu-18.04"
   server_type = "cx11"
