@@ -31,6 +31,13 @@ terraform apply "./terraform/plan"
 terraform destroy -var="hcloud_token=${HCLOUD_TOKEN}" ./terraform
 ```
 
+## observaions
+- when you first time create a plan
+    - then apply the plan
+    - then try to aplly again, the plan is stale
+    - you have to create a new plan (which should say `nothing changed`)
+    - and this plan can be apllyed endlessly idempotend (hopefully)
+
 ## TODO
 - ssh-key workflow
 
