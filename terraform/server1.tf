@@ -1,12 +1,21 @@
 
 
+# resource "random_id" "server" {
+
+#   byte_length = 4
+# }
+
+
 # Create a new server running debian
 resource "hcloud_server" "tf-exampel-node" {
-  count = 1
+  count = 2
   name = "tf-exampel-node-${count.index}"
   location = "nbg1"
   image = "ubuntu-18.04"
   server_type = "cx11"
+  labels =  {
+      "k8s_node_type": "worker"
+  }
   #   user_data = ""
 #   ssh_keys = [
 #     "${var.single_ssh_key_id}"
