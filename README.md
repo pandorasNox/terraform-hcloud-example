@@ -24,11 +24,14 @@ terraform plan \
     -var="hcloud_token=${HCLOUD_TOKEN}" \
     -out=./terraform/plan ./terraform
 
+terraform plan  -var="hcloud_token=${HCLOUD_TOKEN}"  -out=./terraform/plan ./terraform
+
 ### use plan to create infrastructure
 terraform apply "./terraform/plan"
 
 ### destroy infrastructure
 terraform destroy -var="hcloud_token=${HCLOUD_TOKEN}" ./terraform
+terraform destroy -auto-approve -var="hcloud_token=${HCLOUD_TOKEN}" ./terraform
 ```
 
 ## observaions
